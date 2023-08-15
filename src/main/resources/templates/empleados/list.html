@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:insert="~{layout :: base(~{::title}, ~{::body})}">
+<head>
+    <title>Empleados</title>
+    
+</head>
+<body>
+
+<h1>Empleados</h1>
+<a th:href="@{/empleados/create}">Registrar nuevo empleado</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Salario</th>
+        <th>Puesto</th>
+        <th>Fecha de Registro</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="empleado : ${listaEmpleados}">
+        <td th:text="${empleado.id}"></td>
+        <td th:text="${empleado.nombre}"></td>
+        <td th:text="${empleado.apellido}"></td>
+        <td th:text="${empleado.salario}"></td>
+        <td th:text="${empleado.puesto}"></td>
+        <td th:text="${#dates.format(empleado.fechaRegistro, 'dd-MM-yyyy HH:mm:ss')}"></td>
+        <td>
+            <a th:href="@{/empleados/{id}(id=${empleado.id})}">Ver detalle</a> |
+            <a th:href="@{/empleados/{id}/edit(id=${empleado.id})}">Editar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

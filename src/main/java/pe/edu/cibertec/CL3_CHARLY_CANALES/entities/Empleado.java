@@ -12,7 +12,7 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "empleado")
+
 public class Empleado {
 
     @Id
