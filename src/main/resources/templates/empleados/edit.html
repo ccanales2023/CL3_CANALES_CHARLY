@@ -60,6 +60,10 @@
     </style>
 </head>
 <body>
+
+    <form th:action="@{/empleados/{id}/delete(id=${empleado.id})}" method="post">
+        <button>Eliminar</button>
+    </form>
     <form th:action="@{/empleados/{id}(id=${empleado.id})}" method="post" th:object="${empleado}">
         <h1>Editar Empleado</h1>
         <label for="nombre">Nombre</label>
